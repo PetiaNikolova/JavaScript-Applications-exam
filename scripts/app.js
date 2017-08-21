@@ -60,12 +60,13 @@ function startApp() {
             let postId = ctx.params.id.substr(1);
             loadService.postDetails(postId)
                 .then(function (postInfo) {
+
                     ctx.isAnonymous = sessionStorage.getItem('username') === null;
                     ctx.username = sessionStorage.getItem('username');
                     ctx.postId = postId;
                     ctx.url = postInfo.url;
                     ctx.title = postInfo.title;
-                    ctx.imageUrl = postInfo.image;
+                    ctx.imageUrl = postInfo.imageUrl;
                     ctx.description = postInfo.description;
 
                     ctx.loadPartials({
@@ -151,7 +152,7 @@ function startApp() {
             let postId = ctx.params.id.substr(1);
             loadService.deleteComment(postId)
                 .then(function () {
-                    auth.showInfo('Post deleted.');
+                    auth.showInfo('Comment deleted.');
                     window.history.go(-1);
                 }).catch(auth.handleError)
         });
