@@ -1,0 +1,9 @@
+<header>
+    {{#if isAnonymous}}
+    <span class="logo">☃</span><span class="header">SeenIt</span>
+    {{else}}
+        <span class="logo">☃</span><span class="header">SeenIt</span>
+        <div id="profile"><span>{{username}}</span>|<a href="#/logout">logout</a></div>
+
+    {{/if}}
+</header>
